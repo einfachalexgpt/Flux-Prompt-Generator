@@ -1,100 +1,99 @@
 # **Flux-Prompt-Generator**
 
-**Flux Prompt Generator** is a **ComfyUI** node that provides a flexible and customizable prompt generator for generating detailed and creative prompts for image generation models.
-based on the work by [Aitrepreneur](https://huggingface.co/Aitrepreneur) found here [Flux Prompt Generator python code](https://huggingface.co/Aitrepreneur/FLUX-Prompt-Generator/blob/main/app.py) and modified to work with ComfyUI by [FairyRoot](https://github.com/fairy-root)
+Der **Flux Prompt Generator** ist ein **ComfyUI**-Knoten, der einen flexiblen und anpassbaren Prompt-Generator für die Erstellung detaillierter und kreativer Prompts für Bildgenerierungsmodelle bereitstellt. Er basiert auf der Arbeit von [Aitrepreneur](https://huggingface.co/Aitrepreneur), die hier zu finden ist: [Flux Prompt Generator Python Code](https://huggingface.co/Aitrepreneur/FLUX-Prompt-Generator/blob/main/app.py) und wurde von [FairyRoot](https://github.com/fairy-root) für die Arbeit mit ComfyUI angepasst.
 
-![Flux Prompt Generator](https://i.imgur.com/I3nQzaa.png "Displaying workflow")
+![Flux Prompt Generator](https://i.imgur.com/I3nQzaa.png "Workflow anzeigen")
 
-## Overview
+## Überblick
 
-The **Flux Prompt Generator** utilizes a collection of JSON data files containing various categories of descriptive terms. These categories include:
+Der **Flux Prompt Generator** nutzt eine Sammlung von JSON-Datendateien, die verschiedene Kategorien von beschreibenden Begriffen enthalten. Zu diesen Kategorien gehören:
 
-- **Artform:** Photography, Digital Art, etc.
-- **Photo Type:** Portrait, Landscape, etc.
-- **Body Types:** Muscular, Thin, etc.
-- **Default Tags:** Man, Woman, Child, etc.
-- **Roles:** Knight, Wizard, etc.
-- **Hairstyles:** Long, Short, Braided, etc.
-- **Additional Details:** Clothing, Accessories, etc.
-- **Photography Styles:** Cinematic, Realistic, etc.
-- **Device:** Camera models, etc.
-- **Photographer:** Famous photographers, etc.
-- **Artist:** Famous artists, etc.
-- **Digital Artform:** Pixel Art, 3D Render, etc.
-- **Place:** Forest, City, etc.
-- **Lighting:** Soft, Harsh, etc.
-- **Clothing:** Dress, Suit, etc.
-- **Composition:** Rule of Thirds, Golden Ratio, etc.
-- **Pose:** Standing, Sitting, etc.
-- **Background:** Plain, Detailed, etc.
-- **Face Features:** Sharp Jawline, High Cheekbones, etc.
-- **Eye Colors:** Blue, Green, Brown, etc.
-- **Facial Hair:** Beard, Mustache, etc.
-- **Skin Tone:** Pale, Dark, etc.
-- **Age Group:** Child, Teenager, Adult, etc.
-- **Ethnicity:** Various ethnicities and cultural backgrounds.
-- **Accessories:** Glasses, Hats, Jewelry, etc.
-- **Expression:** Smile, Frown, Surprise, etc.
-- **Tattoos & Scars:** Detailed descriptions of body modifications.
-- **Makeup Styles:** Natural, Glamorous, etc.
-- **Hair Color:** Blonde, Brown, Black, etc.
-- **Body Markings:** Birthmarks, Moles, Freckles, etc.
+- **Kunstform:** Fotografie, Digitale Kunst, etc.
+- **Fotoart:** Porträt, Landschaft, etc.
+- **Körpertypen:** Muskulös, Dünn, etc.
+- **Standard-Tags:** Mann, Frau, Kind, etc.
+- **Rollen:** Ritter, Zauberer, etc.
+- **Frisuren:** Lang, Kurz, Geflochten, etc.
+- **Zusätzliche Details:** Kleidung, Accessoires, etc.
+- **Fotografiestile:** Kinematografisch, Realistisch, etc.
+- **Gerät:** Kameramodelle, etc.
+- **Fotograf:** Berühmte Fotografen, etc.
+- **Künstler:** Berühmte Künstler, etc.
+- **Digitale Kunstform:** Pixelkunst, 3D-Render, etc.
+- **Ort:** Wald, Stadt, etc.
+- **Beleuchtung:** Weich, Hart, etc.
+- **Kleidung:** Kleid, Anzug, etc.
+- **Komposition:** Drittelregel, Goldener Schnitt, etc.
+- **Pose:** Stehend, Sitzend, etc.
+- **Hintergrund:** Einfach, Detailliert, etc.
+- **Gesichtsmerkmale:** Scharfe Kieferlinie, Hohe Wangenknochen, etc.
+- **Augenfarben:** Blau, Grün, Braun, etc.
+- **Gesichtsbehaarung:** Bart, Schnurrbart, etc.
+- **Hautfarbe:** Hell, Dunkel, etc.
+- **Altersgruppe:** Kind, Teenager, Erwachsener, etc.
+- **Ethnie:** Verschiedene ethnische und kulturelle Hintergründe.
+- **Accessoires:** Brillen, Hüte, Schmuck, etc.
+- **Ausdruck:** Lächeln, Stirnrunzeln, Überraschung, etc.
+- **Tattoos & Narben:** Detaillierte Beschreibungen von Körpermodifikationen.
+- **Make-up-Stile:** Natürlich, Glamourös, etc.
+- **Haarfarbe:** Blond, Braun, Schwarz, etc.
+- **Körpermarkierungen:** Muttermale, Leberflecken, Sommersprossen, etc.
 
-![Flux Prompt Generator](https://i.imgur.com/0TNizfp.png "Displaying node")
+![Flux Prompt Generator](https://i.imgur.com/0TNizfp.png "Knoten anzeigen")
 
-The node allows you to select specific terms or choose "random" to let the generator pick random terms from the corresponding JSON file. This randomness adds a degree of unpredictability and creativity to the generated prompts.
+Der Knoten ermöglicht es, bestimmte Begriffe auszuwählen oder "zufällig" auszuwählen, um den Generator zufällige Begriffe aus der entsprechenden JSON-Datei auswählen zu lassen. Diese Zufälligkeit fügt den erstellten Prompts ein gewisses Maß an Unvorhersehbarkeit und Kreativität hinzu.
 
 ## Installation
 
-1. **cd** to the custom_nodes folder inside of **ComfyUI** directory
-2. **cmd** in the address bar, then use this command:
+1. Wechsle in den **custom_nodes**-Ordner innerhalb des **ComfyUI**-Verzeichnisses.
+2. Öffne ein **cmd**-Fenster in der Adressleiste und benutze diesen Befehl:
 ```
 git clone https://github.com/fairy-root/Flux-Prompt-Generator.git
 ```
 
-## Usage
+## Verwendung
 
-1. **Add the "Flux Prompt Generator" node to your ComfyUI workflow.**
-2. **Configure the desired parameters:**
-    - **Seed:** Controls the randomness of the generator.
-    - **Custom:** Add any custom text to the prompt.
-    - **Subject:** Specify the main subject of the image.
-    - **Artform:** Choose the desired art form (Photography, Digital Art, etc.).
-    - **... (All other parameters as described in the Overview section)**
+1. **Füge den "Flux Prompt Generator"-Knoten zu deinem ComfyUI-Workflow hinzu.**
+2. **Konfiguriere die gewünschten Parameter:**
+    - **Seed:** Steuert die Zufälligkeit des Generators.
+    - **Custom:** Füge eigenen Text zum Prompt hinzu.
+    - **Subject:** Gib das Hauptthema des Bildes an.
+    - **Kunstform:** Wähle die gewünschte Kunstform (Fotografie, Digitale Kunst, etc.).
+    - **... (Alle anderen Parameter wie im Überblick beschrieben)**
 
-3. **Connect the output of the node to a text-to-image model (like Flux or Stable Diffusion...etc) to generate images based on the generated prompt.**
+3. **Verbinde den Output des Knotens mit einem Text-zu-Bild-Modell (wie Flux oder Stable Diffusion, etc.), um Bilder basierend auf dem erstellten Prompt zu generieren.**
 
-## Example
+## Beispiel
 
-Let's say you want to generate a prompt for a portrait photograph of a woman with long hair, wearing a dress, and standing in a forest. You could configure the node with the following parameters:
+Angenommen, du möchtest einen Prompt für ein Porträtfoto einer Frau mit langen Haaren, die ein Kleid trägt und in einem Wald steht, generieren. Du könntest den Knoten mit den folgenden Parametern konfigurieren:
 
-- **Artform:** Photography
-- **Photo Type:** Portrait
-- **Default Tags:** Woman
-- **Hairstyles:** Long Hair
-- **Clothing:** Dress
-- **Place:** Forest
+- **Kunstform:** Fotografie
+- **Fotoart:** Porträt
+- **Standard-Tags:** Frau
+- **Frisuren:** Lange Haare
+- **Kleidung:** Kleid
+- **Ort:** Wald
 
-The node would then generate a prompt similar to: "photography of a woman with long hair, dressed in a dress, in a forest."
+Der Knoten würde dann einen Prompt wie folgt generieren: "Fotografie einer Frau mit langen Haaren, die ein Kleid trägt, in einem Wald."
 
-## Donation
+## Spenden
 
-Your support is appreciated:
+Deine Unterstützung wird geschätzt:
 
 - USDt (TRC20): `TGCVbSSJbwL5nyXqMuKY839LJ5q5ygn2uS`
 - BTC: `13GS1ixn2uQAmFQkte6qA5p1MQtMXre6MT`
 - ETH (ERC20): `0xdbc7a7dafbb333773a5866ccf7a74da15ee654cc`
 - LTC: `Ldb6SDxUMEdYQQfRhSA3zi4dCUtfUdsPou`
 
-## Author and Contact
+## Autor und Kontakt
 
 - GitHub: [FairyRoot](https://github.com/fairy-root)
 - Telegram: [@FairyRoot](https://t.me/FairyRoot)
 
-## License
+## Lizenz
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe die [LICENSE](LICENSE)-Datei für Details.
 
-## Contributing
+## Beiträge
 
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or features.
+Beiträge sind willkommen! Bitte öffne ein Issue oder reiche einen Pull-Request für Verbesserungen oder neue Funktionen ein.
